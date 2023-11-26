@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 function App() {
   const [toDoList, setTodoList] = useState([]);
+  const [newTask, setNewTask] = useState();
 
   return (
     <div className="App">
