@@ -11,6 +11,10 @@ function App() {
     const newToDolist = [...toDoList, newTask];
     setTodoList(newToDolist);
   }
+  const deleteTask = (taskName) => {
+    const newToDolist = toDoList.filter((task)=>{return task !== taskName});
+    setTodoList(newToDolist)
+  }
 
   return (
     <div className="App">
@@ -19,7 +23,10 @@ function App() {
         <button className='addBtn' onClick={addTask}>Add Task</button>
       </div>
       <div className='listTask'>
-      {toDoList.map((task)=>{return <h1>{task}</h1>})}
+      {toDoList.map((task)=>{return <div>
+        <h1>{task}</h1>
+        <button onClick={() => deleteTask(task)}>X</button>
+        </div>})}
       </div>
     </div>
   );
