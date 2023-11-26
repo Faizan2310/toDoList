@@ -72,7 +72,7 @@ body {
   color: #333;
 }
 
-.listTask button {
+.listTask .deleteBtn {
   background-color: #f44336;
   color: #fff;
   border: none;
@@ -82,6 +82,15 @@ body {
   transition: background-color 0.3s;
 }
 
-.listTask button:hover {
+.listTask .completeBtn{
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.listTask .deleteBtn:hover {
   background-color: #d32f2f;
 }

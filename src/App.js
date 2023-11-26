@@ -12,13 +12,28 @@ function App() {
     const task = {
       id: toDoList.length === 0 ? 1 : toDoList[toDoList.length - 1].id + 1,
       taskName: newTask,
+      isComplete: false,
     };
-    setTodoList([...toDoList, task]);
+    if(newTask === ""){
+      alert("Task name cannot be Empty!")} 
+    else{
+      setTodoList([...toDoList, task]);}
   }
   
   const deleteTask = (id) => {
     const newToDolist = toDoList.filter((task)=>{return task.id !== id});
     setTodoList(newToDolist)
+  }
+
+  const completeTask = (id) =>{
+    setTodoList(toDoList.map((task) => {
+      if(task.id === id){
+        return{...task, isComplete: !task.isComplete}
+      }
+      else{
+        return task;
+      }
+    }))
   }
 
   return (
@@ -29,9 +44,10 @@ function App() {
       </div>
       <div className='listTask'>
       {toDoList.map((task)=>{
-        return <div key={task.id}>
+        return <div key={task.id} style={{backgroundColor: task.isComplete? "lightgreen": ""}}>
         <h1>{task.taskName}</h1>
-        <button onClick={() => deleteTask(task.id)}>X</button>
+        <button className='completeBtn' onClick={()=>completeTask(task.id)}>Complete</button>
+        <button className='deleteBtn' onClick={() => deleteTask(task.id)}>X</button>
         </div>})}
       </div>
     </div>
@@ -39,3 +55,5 @@ function App() {
 }
 
 export default App;
+
+
