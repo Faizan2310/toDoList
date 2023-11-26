@@ -1,18 +1,87 @@
+/* App.css */
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+}
+
 .App {
-  text-align: center;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
-.App .addTask .addBtn{
-    background-color: lightskyblue;
-    height: 40px;
-    border-radius: 10px;
+.addTask {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
 }
 
-.inputBox{
-    margin-top: 20px;
-    width: 300px;
-    height: 40px;
-    border: 3px solid lightskyblue;
-    border-radius: 5px;
-  
+.inputBox {
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.addBtn {
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.addBtn:hover {
+  background-color: #45a049;
+}
+
+.listTask {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.listTask > div {
+  margin-bottom: 10px;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.listTask > div:hover {
+  transform: translateY(-5px);
+}
+
+.listTask h1 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.listTask button {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.listTask button:hover {
+  background-color: #d32f2f;
 }

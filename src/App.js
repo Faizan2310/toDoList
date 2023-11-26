@@ -7,12 +7,17 @@ function App() {
   const [newTask, setNewTask] = useState("");
 
   const handleChange = (event) => setNewTask(event.target.value);
+
   const addTask = () => {
-    const newToDolist = [...toDoList, newTask];
-    setTodoList(newToDolist);
+    const task = {
+      id: toDoList.length === 0 ? 1 : toDoList[toDoList.length - 1].id + 1,
+      taskName: newTask,
+    };
+    setTodoList([...toDoList, task]);
   }
-  const deleteTask = (taskName) => {
-    const newToDolist = toDoList.filter((task)=>{return task !== taskName});
+  
+  const deleteTask = (id) => {
+    const newToDolist = toDoList.filter((task)=>{return task.id !== id});
     setTodoList(newToDolist)
   }
 
@@ -23,9 +28,10 @@ function App() {
         <button className='addBtn' onClick={addTask}>Add Task</button>
       </div>
       <div className='listTask'>
-      {toDoList.map((task)=>{return <div>
-        <h1>{task}</h1>
-        <button onClick={() => deleteTask(task)}>X</button>
+      {toDoList.map((task)=>{
+        return <div key={task.id}>
+        <h1>{task.taskName}</h1>
+        <button onClick={() => deleteTask(task.id)}>X</button>
         </div>})}
       </div>
     </div>
